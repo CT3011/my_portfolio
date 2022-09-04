@@ -1,0 +1,1 @@
+web: gunicon portfoliowebsite.wsgi --log-file -
