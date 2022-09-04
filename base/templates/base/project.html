@@ -1,0 +1,18 @@
+{% extends 'base/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <img class="project--image" src="{{project.thumbmail.url}}">
+
+    <h1> {{project.title}} </h1>
+    
+    <a type="button" class="btn btn-warning" href="{% url 'edit-project' project.id %}">Edit</a>
+
+    <hr>
+
+    <p>{{project.body| safe}}</p>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,105 @@
+{% extends 'base/main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+    <section class="hero">
+        <div class="hero--content">
+            <div class="hero--content--intro">
+                <img id="profile_pic" src="{% static 'images/chirag.jpg' %}">
+                <h1 class="intro--name"> Chirag <br> Thengadi </h1>
+            </div>
+
+            <div class="hero--content--subheadline">
+                <h3 class="description">FullStack Developer</h3>
+                <p class="slogan">i build the website frontend and website backend.</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="container section--2">
+
+        <h3>My Projects</h3>
+        <h5>projects the i make by my self</h5>
+        <div class="projects--weapper">
+
+            {% for project in projects %}
+            <div class="project--column">
+                <a href="{% url 'project' project.id %}">
+                <img class="project--thumbnail" src="{{project.thumbmail.url}}">
+                </a>
+                <div class="prooject--body">
+                    <h5>{{project.title}}</h5>
+                </div>
+            </div>
+            {% empty %}
+
+            <h3>There are no Projects in the database...</h3>
+            {% endfor %}
+
+
+        </div>
+
+        <div class="about--wrapper">
+            <h3>more About Me</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate rerum magnam sint, quod iusto quam
+                illo quasi velit iure voluptatum consequuntur animi! Vel dolor accusantium sed ut recusandae reiciendis
+                numquam.
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius vitae saepe voluptate cupiditate voluptas
+                neque aliquid. Pariatur explicabo assumenda molestiae tenetur minima est nobis delectus fugit a!
+                Quibusdam, incidunt delectus?</p>
+        </div>
+    </section>
+
+    <section class="section--1">
+        <div class="skills--container">
+            <h3> My skills </h3>
+
+            {% for skill in detailedSkills %}
+            <div class="skill--wrapper">
+                <h5>{{skill.title}}</h5>
+                <p>{{skill.body}}</p>
+            </div>
+            {% endfor %}
+
+            <h4>Other Skills</h4>
+            <div class="other--skills-wrapper">
+                {% for skill in skills %}
+                <div class="skill--tag">
+                    <span>{{skill.title}}</span>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </section>
+
+<section class="section--2">
+    <div class="container">
+        <form class="contact--form" method="POST">
+            {% csrf_token %}
+
+            {% for field in form %}
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">{{field.label}}</label>
+                {{field}}
+            </div>
+    
+            {% endfor %}
+    
+            <input class="btn btn-primary" type="submit" value="submit">
+        </form>
+
+    </div>
+
+</section>
+
+    {% endblock content %}
