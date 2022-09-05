@@ -9,6 +9,10 @@ urlpatterns = [
     path('add-project/', views.addProject, name='add-project'),
     path('edit-project/<str:pk>/', views.editProject, name='edit-project'),
 
-    path('inbox/', views.inboxPage, name='inbox'),
+    path('inbox/', views.inboxPage, name='inbox'),  
     path('message/<str:pk>/', views.messagePage, name='message'),
+
+    path('add-skill/', views.addSkill, name='add-skill'),
+
+    path('add-endorsement/', views.addEndorsement, name='add-endorsement'),
 ]
