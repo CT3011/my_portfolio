@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 import uuid
 
@@ -31,6 +32,7 @@ class Comment(models.Model):
 class Skill(models.Model):
     title = models.CharField(max_length=200)
     body = models.TextField(null=True, blank=True)
+    logo = models.ImageField(null=True, default="skill.jpg")
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
