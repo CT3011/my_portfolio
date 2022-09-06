@@ -21,6 +21,7 @@ body{
     height: 50px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .nav-link{
@@ -60,6 +61,7 @@ body{
     font-size: 75px;
     letter-spacing: .1em;
     font-weight: 700;
+    line-height: .9em;
 }
 
 .description{
