@@ -17,4 +17,6 @@ urlpatterns = [
     path('add-endorsement/', views.addEndorsement, name='add-endorsement'),
 
     path('donation/', views.DonationPage, name='donation'),
+
+    path('chart/', views.chartPage, name='chart'),
 ]
